@@ -1,0 +1,158 @@
+/* ============================================================
+   MOSHLY APPS THEME — Projects
+   Project management / dashboard-heavy / desktop-first
+   ============================================================
+   TODO: Draft lives in the Projects app repo.
+         Migrate and consolidate here when ready.
+   ============================================================ */
+
+@import "./base.css";
+
+/* :root overrides and components go here */
+
+@import "./base.css";
+
+:root {
+  /* ── Theme identity ──────────────────────────────────────── */
+  --theme-name: "projects";
+
+  /* ── Typography — readable at small sizes ───────────────── */
+  --font-sans: "Inter", "SF Pro Text", system-ui, sans-serif;
+
+  /* Tighter radius — professional, structured feel */
+  --radius: 0.375rem;   /* 6px */
+
+  /* ── Dense layout vars ───────────────────────────────────── */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 60px;
+  --header-height: 52px;
+  --panel-padding: 1rem;
+
+  /* ── Enhanced sidebar ────────────────────────────────────── */
+  --sidebar: #0E0F14;
+  --sidebar-foreground: #A4A7B5;
+  --sidebar-accent: #141624;
+  --sidebar-accent-foreground: #E6E7EB;
+  --sidebar-border: #24273A;
+
+  /* ── Chart colors (5 distinct series) ───────────────────── */
+  --chart-1: #6B5CFF;
+  --chart-2: #C026D3;
+  --chart-3: #00E5FF;
+  --chart-4: #4ADE80;
+  --chart-5: #FBBF24;
+}
+
+/* ── Projects-specific components ─────────────────────────── */
+@layer components {
+
+  /* App shell */
+  .app-shell {
+    @apply flex h-screen overflow-hidden bg-background;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: var(--sidebar-width);
+    @apply flex-shrink-0 flex flex-col
+           bg-sidebar border-r border-sidebar-border
+           transition-[width] duration-200 overflow-hidden;
+  }
+  .sidebar--collapsed {
+    width: var(--sidebar-collapsed-width);
+  }
+
+  /* Top header bar */
+  .app-header {
+    height: var(--header-height);
+    @apply flex items-center px-4 gap-3
+           border-b border-border bg-card
+           flex-shrink-0;
+  }
+
+  /* Main content area */
+  .app-main {
+    @apply flex-1 overflow-auto;
+  }
+
+  /* Page header */
+  .page-header {
+    @apply flex items-center justify-between
+           px-6 py-4 border-b border-border;
+  }
+  .page-title {
+    @apply text-lg font-semibold text-foreground;
+  }
+
+  /* Data table */
+  .data-table {
+    @apply w-full text-sm;
+  }
+  .data-table th {
+    @apply px-3 py-2 text-left text-xs font-medium text-muted-foreground uppercase tracking-wider
+           border-b border-border bg-muted/30 sticky top-0;
+  }
+  .data-table td {
+    @apply px-3 py-2.5 border-b border-border text-foreground;
+  }
+  .data-table tr:hover td {
+    @apply bg-accent/30;
+  }
+
+  /* Kanban column */
+  .kanban-col {
+    @apply flex flex-col gap-2 min-w-[280px] max-w-[320px];
+  }
+  .kanban-col-header {
+    @apply flex items-center justify-between
+           px-3 py-2 rounded-[var(--radius)] bg-muted
+           text-xs font-semibold text-muted-foreground uppercase tracking-wide;
+  }
+  .kanban-card {
+    @apply bg-card border border-border rounded-[var(--radius)]
+           p-3 cursor-pointer hover:border-primary/40 transition-colors;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply bg-card border border-border rounded-[var(--radius)] p-4;
+  }
+  .stat-card-label {
+    @apply text-xs font-medium text-muted-foreground uppercase tracking-wide mb-1;
+  }
+  .stat-card-value {
+    @apply text-2xl font-bold text-foreground;
+  }
+  .stat-card-delta-up   { @apply text-xs text-emerald-400; }
+  .stat-card-delta-down { @apply text-xs text-red-400; }
+
+  /* Breadcrumb bar */
+  .breadcrumb {
+    @apply flex items-center gap-1 text-sm text-muted-foreground;
+  }
+  .breadcrumb-sep {
+    @apply text-border;
+  }
+  .breadcrumb-current {
+    @apply text-foreground font-medium;
+  }
+
+  /* Activity feed item */
+  .activity-item {
+    @apply flex items-start gap-3 py-3 border-b border-border last:border-b-0;
+  }
+  .activity-dot {
+    @apply w-2 h-2 rounded-full bg-primary mt-1.5 flex-shrink-0;
+  }
+  .activity-text {
+    @apply text-sm text-foreground;
+  }
+  .activity-time {
+    @apply text-xs text-muted-foreground mt-0.5;
+  }
+
+  /* Priority indicator */
+  .priority-high   { @apply text-red-400; }
+  .priority-medium { @apply text-yellow-400; }
+  .priority-low    { @apply text-emerald-400; }
+}

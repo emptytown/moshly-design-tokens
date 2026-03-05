@@ -1,0 +1,17 @@
+/* ============================================================
+   MOSHLY SKIN — Cyan (Moshly accent tertiary)
+   ============================================================
+   Apply via: <html data-skin="cyan">
+   ============================================================ */
+
+[data-skin="cyan"] {
+  --primary: #00C4D9;
+  --primary-foreground: #0E0F14;
+  --ring: #00C4D9;
+  --sidebar-primary: #00C4D9;
+  --sidebar-primary-foreground: #0E0F14;
+
+  --skin-accent: #00E5FF;
+  --skin-accent-dark: #00C4D9;
+  --skin-accent-glow: rgba(0, 229, 255, 0.25);
+}

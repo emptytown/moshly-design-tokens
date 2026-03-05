@@ -1,0 +1,17 @@
+/* ============================================================
+   MOSHLY SKIN — Magenta
+   ============================================================
+   Apply via: <html data-skin="magenta">
+   ============================================================ */
+
+[data-skin="magenta"] {
+  --primary: #C026D3;
+  --primary-foreground: #ffffff;
+  --ring: #C026D3;
+  --sidebar-primary: #C026D3;
+  --sidebar-primary-foreground: #ffffff;
+
+  --skin-accent: #C026D3;
+  --skin-accent-dark: #A21CAF;
+  --skin-accent-glow: rgba(192, 38, 211, 0.25);
+}

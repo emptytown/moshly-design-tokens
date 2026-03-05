@@ -1,0 +1,17 @@
+/* ============================================================
+   MOSHLY SKIN — Red (GigBid brand)
+   ============================================================
+   Apply via: <html data-skin="red">
+   ============================================================ */
+
+[data-skin="red"] {
+  --primary: oklch(0.45 0.22 25);
+  --primary-foreground: #ffffff;
+  --ring: oklch(0.45 0.22 25);
+  --sidebar-primary: oklch(0.45 0.22 25);
+  --sidebar-primary-foreground: #ffffff;
+
+  --skin-accent: oklch(0.45 0.22 25);
+  --skin-accent-dark: oklch(0.38 0.22 25);
+  --skin-accent-glow: rgba(180, 40, 40, 0.25);
+}

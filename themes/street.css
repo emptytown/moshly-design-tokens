@@ -1,0 +1,121 @@
+/* ============================================================
+   MOSHLY APPS THEME — Street
+   Mobile-first, on-the-go, practical field use
+   ============================================================
+   TODO: Draft lives in the Street app repo.
+         Migrate and consolidate here when ready.
+   ============================================================ */
+
+@import "./base.css";
+
+/* :root overrides and components go here */
+
+@import "./base.css";
+
+:root {
+  /* ── Theme identity ──────────────────────────────────────── */
+  --theme-name: "street";
+
+  /* ── Typography — larger for field readability ───────────── */
+  --font-sans: "Inter", "SF Pro Text", system-ui, sans-serif;
+
+  /* Larger radius — friendlier, thumb-friendly UI */
+  --radius: 0.75rem;   /* 12px */
+
+  /* ── More contrast for outdoor use ──────────────────────── */
+  --foreground: #F0F1F5;         /* Brighter text */
+  --muted-foreground: #9399AD;
+
+  /* Slightly lighter card to stand out in sunlight */
+  --card: #1B1E2E;
+  --border: #343750;
+
+  /* Large input height via CSS — override at component level */
+  --input-height-mobile: 48px;
+}
+
+/* ── Street-specific overrides ────────────────────────────── */
+@layer components {
+
+  /* Large tap targets for all interactives */
+  .btn-street {
+    @apply inline-flex items-center justify-center gap-2
+           h-12 px-6 rounded-[var(--radius)] text-base font-semibold
+           bg-primary text-primary-foreground
+           transition-[opacity,transform] active:scale-95 active:opacity-80;
+  }
+
+  .btn-street-ghost {
+    @apply btn-street bg-transparent border border-border
+           text-foreground hover:bg-accent;
+  }
+
+  /* Full-width primary CTA */
+  .btn-street-full {
+    @apply btn-street w-full;
+  }
+
+  /* Large inputs */
+  .input-street {
+    @apply w-full h-12 rounded-[var(--radius)] border border-border bg-input
+           px-4 text-base text-foreground placeholder:text-muted-foreground
+           outline-none transition-[border-color] 
+           focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20;
+  }
+
+  /* Card — easier to scan on mobile */
+  .card-street {
+    @apply bg-card border border-border rounded-[var(--radius)] p-4;
+  }
+
+  /* List item row — large touch target */
+  .list-item-street {
+    @apply flex items-center gap-3 p-4 border-b border-border
+           last:border-b-0 active:bg-accent transition-colors cursor-pointer;
+  }
+
+  /* Status pill — big and readable */
+  .pill {
+    @apply inline-flex items-center justify-center
+           px-3 py-1 rounded-full text-sm font-semibold;
+  }
+  .pill-active  { @apply text-emerald-400 bg-emerald-400/15; }
+  .pill-idle    { @apply text-muted-foreground bg-muted; }
+  .pill-alert   { @apply text-red-400 bg-red-400/15; }
+  .pill-pending { @apply text-yellow-400 bg-yellow-400/15; }
+
+  /* Bottom action bar (sticky) */
+  .bottom-bar {
+    @apply fixed bottom-0 left-0 right-0 z-50
+           bg-card border-t border-border
+           p-4 flex gap-3;
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Quick stat chip */
+  .stat-chip {
+    @apply flex flex-col items-center justify-center
+           bg-card rounded-[var(--radius)] p-3 gap-0.5;
+  }
+  .stat-chip-value {
+    @apply text-2xl font-bold text-foreground;
+  }
+  .stat-chip-label {
+    @apply text-xs text-muted-foreground uppercase tracking-wide;
+  }
+
+  /* Map overlay card */
+  .map-overlay-card {
+    @apply absolute bottom-4 left-4 right-4 z-10
+           bg-card/95 backdrop-blur-md border border-border
+           rounded-[var(--radius)] p-4 shadow-xl;
+  }
+}
+
+/* ── Mobile-first responsive overrides ───────────────────── */
+@media (min-width: 768px) {
+  :root {
+    /* On tablet+, revert to slightly smaller targets */
+    --radius: 0.625rem; /* 10px */
+  }
+}

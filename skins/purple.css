@@ -1,0 +1,21 @@
+/* ============================================================
+   MOSHLY SKIN — Purple (Moshly brand violet)
+   ============================================================
+   Apply via: <html data-skin="purple">
+   
+   Overrides --primary and related tokens so bg-primary,
+   text-primary, ring, sidebar-primary all follow the skin.
+   ============================================================ */
+
+[data-skin="purple"] {
+  --primary: #6B5CFF;
+  --primary-foreground: #ffffff;
+  --ring: #6B5CFF;
+  --sidebar-primary: #6B5CFF;
+  --sidebar-primary-foreground: #ffffff;
+
+  /* Skin-specific accent vars (for custom CSS not on bg-primary) */
+  --skin-accent: #6B5CFF;
+  --skin-accent-dark: #5A4EE6;
+  --skin-accent-glow: rgba(107, 92, 255, 0.30);
+}

@@ -1,0 +1,143 @@
+/* ============================================================
+   MOSHLY APPS DESIGN TOKENS — Base Theme (Dark)
+   Tailwind CSS v4 custom properties
+   All app themes @import this file as foundation.
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* ── Custom dark variant ──────────────────────────────────── */
+@custom-variant dark (&:is(.dark *));
+
+/* ── Theme bridge (maps CSS vars → Tailwind color tokens) ── */
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* ── Moshly dark base ─────────────────────────────────────── */
+:root {
+  color-scheme: dark;
+
+  /* Primary: to be overridden per theme / skin */
+  --primary: #6B5CFF;
+  --primary-foreground: #ffffff;
+  --ring: #6B5CFF;
+
+  --background: #0E0F14;
+  --foreground: #E6E7EB;
+  --card: #1B1E2E;
+  --card-foreground: #E6E7EB;
+  --popover: #1B1E2E;
+  --popover-foreground: #E6E7EB;
+  --secondary: #141624;
+  --secondary-foreground: #A4A7B5;
+  --muted: #141624;
+  --muted-foreground: #7B7F93;
+  --accent: #24273A;
+  --accent-foreground: #E6E7EB;
+  --destructive: #F87171;
+  --destructive-foreground: #ffffff;
+  --border: #2D3048;
+  --input: #24273A;
+
+  /* Sidebar */
+  --sidebar: #141624;
+  --sidebar-foreground: #E6E7EB;
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: #1B1E2E;
+  --sidebar-accent-foreground: #E6E7EB;
+  --sidebar-border: #24273A;
+  --sidebar-ring: var(--primary);
+
+  --radius: 0.5rem;
+}
+
+/* ── Skin system ──────────────────────────────────────────── */
+/*
+  Skins override --primary and related vars by setting
+  a data-skin attribute on <html>. See skins/ folder.
+
+  Usage: <html data-skin="purple"> or <html data-skin="red">
+*/
+
+/* ── Base layer resets ────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Cursor pointer for interactive elements */
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+/* ── Container ────────────────────────────────────────────── */
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}

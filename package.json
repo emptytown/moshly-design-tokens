@@ -1,0 +1,36 @@
+{
+  "name": "@moshly/apps-tokens",
+  "version": "1.0.0",
+  "description": "Moshly Apps Design Tokens — Tailwind CSS themes for Moshly applications",
+  "style": "themes/base.css",
+  "exports": {
+    ".": "./themes/base.css",
+    "./themes/base": "./themes/base.css",
+    "./themes/forms": "./themes/forms.css",
+    "./themes/street": "./themes/street.css",
+    "./themes/projects": "./themes/projects.css",
+    "./skins/purple": "./skins/purple.css",
+    "./skins/red": "./skins/red.css",
+    "./skins/cyan": "./skins/cyan.css",
+    "./skins/magenta": "./skins/magenta.css",
+    "./tokens/colors": "./tokens/colors.css"
+  },
+  "keywords": [
+    "design-tokens",
+    "tailwind",
+    "moshly",
+    "design-system",
+    "apps",
+    "themes",
+    "skins"
+  ],
+  "author": "Moshly",
+  "license": "MIT",
+  "peerDependencies": {
+    "tailwindcss": ">=4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emptytown/moshly-design-tokens.git"
+  }
+}
