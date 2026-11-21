@@ -1,0 +1,59 @@
+{
+  "$description": "Moshly Neo Brut — values shared by dark and light mode. Format: W3C Design Tokens (DTCG). Edit here, then run `npm run build`.",
+  "nb": {
+    "color": {
+      "$type": "color",
+      "lime":       { "$value": "#D8FF54", "$description": "Primary actions and 'you are here' only (60-30-10)." },
+      "lime-hover": { "$value": "#E6FF8A" },
+      "purple":     { "$value": "#C575F8", "$description": "Identity: plan, avatar, user name, end markers." },
+      "red":        { "$value": "#FF5A5A", "$description": "Destructive fill, always with `on` text." },
+      "on":         { "$value": "#111111", "$description": "Text and icons on lime, purple and red fills." }
+    },
+    "font": {
+      "family": {
+        "$type": "fontFamily",
+        "base":    { "$value": ["Inter Tight", "Inter", "system-ui", "sans-serif"] },
+        "display": { "$value": ["Inter Tight", "Inter", "system-ui", "sans-serif"] },
+        "script":  { "$value": ["Caveat Brush", "Caveat", "cursive"], "$description": "One accent word at most (e.g. the user's name)." }
+      },
+      "weight": {
+        "$type": "fontWeight",
+        "body":    { "$value": 500 },
+        "strong":  { "$value": 700 },
+        "label":   { "$value": 800 },
+        "display": { "$value": 900 }
+      },
+      "size": {
+        "$type": "dimension",
+        "label":   { "$value": { "value": 12, "unit": "px" }, "$description": "Section labels: uppercase, label weight, label tracking." },
+        "body":    { "$value": { "value": 14, "unit": "px" } },
+        "title":   { "$value": { "value": 20, "unit": "px" } },
+        "value":   { "$value": { "value": 22, "unit": "px" }, "$description": "Numbers inside metric boxes: loud value, quiet box." },
+        "display": { "$value": { "value": 40, "unit": "px" } }
+      },
+      "tracking": {
+        "$type": "number",
+        "label":   { "$value": 0.1, "$description": "em" },
+        "display": { "$value": -0.045, "$description": "em" }
+      }
+    },
+    "space": {
+      "$type": "dimension",
+      "xs":  { "$value": { "value": 4,  "unit": "px" } },
+      "sm":  { "$value": { "value": 8,  "unit": "px" } },
+      "md":  { "$value": { "value": 16, "unit": "px" } },
+      "lg":  { "$value": { "value": 24, "unit": "px" } },
+      "xl":  { "$value": { "value": 40, "unit": "px" } },
+      "2xl": { "$value": { "value": 64, "unit": "px" } }
+    },
+    "size": {
+      "$type": "dimension",
+      "target":       { "$value": { "value": 40, "unit": "px" }, "$description": "Minimum interactive height." },
+      "target-touch": { "$value": { "value": 44, "unit": "px" }, "$description": "Minimum interactive height on touch (Apple HIG)." }
+    },
+    "radius": {
+      "$type": "dimension",
+      "pill": { "$value": { "value": 999, "unit": "px" } }
+    }
+  }
+}

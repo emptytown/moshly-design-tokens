@@ -1,0 +1,141 @@
+/* ============================================================
+   MOSHLY APPS THEME — Neo Brut
+   Tailwind CSS v4. Maps the generated Neo Brut tokens
+   (dist/neo-brut.css, from tokens/neo-brut/*.tokens.json) onto the
+   shared app variables in base.css, so every existing utility
+   (bg-primary, text-muted-foreground, border-border, rounded-lg …)
+   follows the skin.
+
+   Apply on <html>:
+     class="skin-brutal"              → dark (default)
+     class="skin-brutal theme-light"  → light
+   Same classes as the Moshly hub, so a user's choice carries over.
+
+   Extra utilities:
+     bg-nb-lime / text-nb-purple-ink / …  brand colours
+     shadow-nb-sm | shadow-nb | shadow-nb-lg   hard offset shadows (light), none (dark)
+     rounded-nb | rounded-nb-block | border-nb  mode radius / border width
+     font-display | font-script                 Inter Tight 900 / Caveat Brush
+   ============================================================ */
+
+@import "./base.css";
+@import "../dist/neo-brut.css";
+
+@theme inline {
+  --color-nb-lime: var(--nb-lime);
+  --color-nb-purple: var(--nb-purple);
+  --color-nb-red: var(--nb-red);
+  --color-nb-on: var(--nb-on);
+  --color-nb-paper: var(--nb-paper);
+  --color-nb-paper-2: var(--nb-paper-2);
+  --color-nb-card: var(--nb-card);
+  --color-nb-ink: var(--nb-ink);
+  --color-nb-muted: var(--nb-muted);
+  --color-nb-line: var(--nb-line);
+  --color-nb-purple-ink: var(--nb-purple-ink);
+  --color-nb-red-ink: var(--nb-red-ink);
+
+  --shadow-nb-sm: var(--nb-shadow-sm);
+  --shadow-nb: var(--nb-shadow-md);
+  --shadow-nb-lg: var(--nb-shadow-lg);
+
+  --radius-nb: var(--nb-radius-control);
+  --radius-nb-block: var(--nb-radius-block);
+
+  --font-sans: var(--nb-font-family-base);
+  --font-display: var(--nb-font-family-display);
+  --font-script: var(--nb-font-family-script);
+}
+
+/* ── App variables → Neo Brut (60-30-10: lime = primary action only) ── */
+.skin-brutal {
+  --primary: var(--nb-lime);
+  --primary-foreground: var(--nb-on);
+  --ring: var(--nb-focus);
+
+  --background: var(--nb-paper);
+  --foreground: var(--nb-ink);
+  --card: var(--nb-card);
+  --card-foreground: var(--nb-ink);
+  --popover: var(--nb-card);
+  --popover-foreground: var(--nb-ink);
+  --secondary: var(--nb-purple);            /* identity */
+  --secondary-foreground: var(--nb-on);
+  --muted: var(--nb-paper-2);
+  --muted-foreground: var(--nb-muted);
+  --accent: var(--nb-paper-2);              /* hover / selected rows */
+  --accent-foreground: var(--nb-ink);
+  --destructive: var(--nb-red);
+  --destructive-foreground: var(--nb-on);
+  --border: var(--nb-line);
+  --input: var(--nb-line);
+
+  --sidebar: var(--nb-paper-2);
+  --sidebar-foreground: var(--nb-ink);
+  --sidebar-primary: var(--nb-lime);
+  --sidebar-primary-foreground: var(--nb-on);
+  --sidebar-accent: var(--nb-card);
+  --sidebar-accent-foreground: var(--nb-ink);
+  --sidebar-border: var(--nb-line);
+  --sidebar-ring: var(--nb-focus);
+
+  --radius: var(--nb-radius-control);
+}
+
+@layer utilities {
+  .border-nb { border-width: var(--nb-border-width); border-color: var(--nb-line); }
+}
+
+/* ── Components ─────────────────────────────────────────────── */
+@layer components {
+  /* Section label: type, not a chip */
+  .nb-label {
+    font-size: var(--nb-font-size-label);
+    font-weight: var(--nb-font-weight-label);
+    letter-spacing: calc(var(--nb-font-tracking-label) * 1em);
+    text-transform: uppercase;
+    color: var(--nb-ink);
+  }
+
+  /* Raised surface */
+  .nb-card {
+    background: var(--nb-card);
+    border: var(--nb-border-width) solid var(--nb-line);
+    border-radius: var(--nb-radius-block);
+    box-shadow: var(--nb-shadow-md);
+    padding: var(--nb-space-lg);
+  }
+
+  /* Buttons — ≥ 40px (44px on touch) */
+  .nb-btn,
+  .nb-btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: var(--nb-space-sm);
+    min-height: var(--nb-size-target);
+    padding: 0 var(--nb-space-lg);
+    white-space: nowrap; flex-shrink: 0;
+    border: var(--nb-border-width) solid var(--nb-line-strong);
+    border-radius: var(--nb-radius-pill);
+    background: transparent; color: var(--nb-ink);
+    font-weight: var(--nb-font-weight-label);
+    box-shadow: var(--nb-shadow-sm);
+    transition: transform .08s, box-shadow .08s, background-color .12s;
+  }
+  .nb-btn-primary { background: var(--nb-lime); color: var(--nb-on); }
+  .skin-brutal:not(.theme-light) .nb-btn-primary { border-color: transparent; }
+  .nb-btn-primary:hover { background: var(--nb-lime-hover); }
+  .skin-brutal.theme-light :is(.nb-btn, .nb-btn-primary) { border-radius: var(--nb-radius-control); }
+  .skin-brutal.theme-light :is(.nb-btn, .nb-btn-primary):hover { transform: translate(-1px, -1px); box-shadow: var(--nb-shadow-md); }
+  .skin-brutal.theme-light :is(.nb-btn, .nb-btn-primary):active { transform: translate(2px, 2px); box-shadow: none; }
+  .skin-brutal:not(.theme-light) :is(.nb-btn, .nb-btn-primary):active { transform: scale(.97); }
+  :is(.nb-btn, .nb-btn-primary):disabled { background: transparent; color: var(--nb-muted); border-style: dashed; box-shadow: none; cursor: not-allowed; }
+  @media (pointer: coarse) { :is(.nb-btn, .nb-btn-primary) { min-height: var(--nb-size-target-touch); } }
+
+  /* Script accent — one word at most */
+  .nb-script { font-family: var(--nb-font-family-script); color: var(--nb-purple-ink); }
+
+  :where(.skin-brutal) :focus-visible { outline: 3px solid var(--nb-focus); outline-offset: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(.nb-btn, .nb-btn-primary) { transition: none; }
+}

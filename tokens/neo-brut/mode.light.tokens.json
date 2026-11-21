@@ -1,0 +1,35 @@
+{
+  "$description": "Neo Brut — light mode. Classic neo-brutalism: cream paper, black ink borders, hard offset shadows, small radius.",
+  "nb": {
+    "color": {
+      "$type": "color",
+      "paper":       { "$value": "#FFF3DD", "$description": "Page background (cream)." },
+      "paper-2":     { "$value": "#FFE9C2", "$description": "Recessed areas." },
+      "card":        { "$value": "#FFFFFF", "$description": "Raised surfaces." },
+      "ink":         { "$value": "#111111", "$description": "Text, borders and shadows." },
+      "muted":       { "$value": "#4B4B4B", "$description": "Secondary text." },
+      "line":        { "$value": "#111111", "$description": "Borders." },
+      "line-strong": { "$value": "#111111" },
+      "grid":        { "$value": "#11111114", "$description": "Background grid lines." },
+      "focus":       { "$value": "{nb.color.purple}" },
+      "purple-ink":  { "$value": "#5B3DF5", "$description": "Purple used as text (AA on cream)." },
+      "red-ink":     { "$value": "#D11A1A", "$description": "Red used as text (AA on white/cream)." },
+      "shadow-color": { "$value": "#111111" }
+    },
+    "border": {
+      "width": { "$type": "dimension", "$value": { "value": 2.5, "unit": "px" } }
+    },
+    "radius": {
+      "$type": "dimension",
+      "control": { "$value": { "value": 6, "unit": "px" } },
+      "block":   { "$value": { "value": 8, "unit": "px" } }
+    },
+    "shadow": {
+      "$type": "shadow",
+      "sm":      { "$value": { "color": "{nb.color.shadow-color}", "offsetX": { "value": 2, "unit": "px" }, "offsetY": { "value": 2, "unit": "px" }, "blur": { "value": 0, "unit": "px" }, "spread": { "value": 0, "unit": "px" } } },
+      "md":      { "$value": { "color": "{nb.color.shadow-color}", "offsetX": { "value": 4, "unit": "px" }, "offsetY": { "value": 4, "unit": "px" }, "blur": { "value": 0, "unit": "px" }, "spread": { "value": 0, "unit": "px" } } },
+      "lg":      { "$value": { "color": "{nb.color.shadow-color}", "offsetX": { "value": 6, "unit": "px" }, "offsetY": { "value": 6, "unit": "px" }, "blur": { "value": 0, "unit": "px" }, "spread": { "value": 0, "unit": "px" } } },
+      "elevate": { "$value": "{nb.shadow.lg}", "$description": "Hover lift = larger hard shadow." }
+    }
+  }
+}

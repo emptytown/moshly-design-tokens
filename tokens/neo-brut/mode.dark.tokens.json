@@ -1,0 +1,35 @@
+{
+  "$description": "Neo Brut — dark mode (default). Flat, heavily rounded colour blocks on #181818; no offset shadows (they vanish on black).",
+  "nb": {
+    "color": {
+      "$type": "color",
+      "paper":       { "$value": "#181818", "$description": "Page background." },
+      "paper-2":     { "$value": "#111111", "$description": "Sidebar / recessed areas." },
+      "card":        { "$value": "#232323", "$description": "Raised surfaces." },
+      "ink":         { "$value": "#FFFFFF", "$description": "Text." },
+      "muted":       { "$value": "#A6A6A6", "$description": "Secondary text (6.9:1 on card)." },
+      "line":        { "$value": "#2E2E2E", "$description": "Hairline borders." },
+      "line-strong": { "$value": "#3A3A3A", "$description": "Outline buttons, dashed empty states." },
+      "grid":        { "$value": "#FFFFFF08", "$description": "Background grid lines." },
+      "focus":       { "$value": "{nb.color.lime}" },
+      "purple-ink":  { "$value": "{nb.color.purple}", "$description": "Purple used as text." },
+      "red-ink":     { "$value": "#FF7A7A", "$description": "Red used as text." },
+      "shadow-color": { "$value": "#00000000" }
+    },
+    "border": {
+      "width": { "$type": "dimension", "$value": { "value": 1.5, "unit": "px" } }
+    },
+    "radius": {
+      "$type": "dimension",
+      "control": { "$value": { "value": 16, "unit": "px" } },
+      "block":   { "$value": { "value": 28, "unit": "px" }, "$description": "Cards / colour blocks." }
+    },
+    "shadow": {
+      "$type": "shadow",
+      "sm":      { "$value": { "color": "{nb.color.shadow-color}", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 0, "unit": "px" }, "blur": { "value": 0, "unit": "px" }, "spread": { "value": 0, "unit": "px" } } },
+      "md":      { "$value": { "color": "{nb.color.shadow-color}", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 0, "unit": "px" }, "blur": { "value": 0, "unit": "px" }, "spread": { "value": 0, "unit": "px" } } },
+      "lg":      { "$value": { "color": "{nb.color.shadow-color}", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 0, "unit": "px" }, "blur": { "value": 0, "unit": "px" }, "spread": { "value": 0, "unit": "px" } } },
+      "elevate": { "$value": { "color": "#00000059", "offsetX": { "value": 0, "unit": "px" }, "offsetY": { "value": 14, "unit": "px" }, "blur": { "value": 30, "unit": "px" }, "spread": { "value": 0, "unit": "px" } }, "$description": "Hover lift only." }
+    }
+  }
+}

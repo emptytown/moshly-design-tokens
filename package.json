@@ -1,7 +1,7 @@
 {
   "name": "@moshly/apps-tokens",
   "version": "1.0.0",
-  "description": "Moshly Apps Design Tokens — Tailwind CSS themes for Moshly applications",
+  "description": "Moshly design tokens — JSON source of truth (W3C DTCG) with generated CSS, Tailwind themes and a Swift package for iOS",
   "style": "themes/base.css",
   "exports": {
     ".": "./themes/base.css",
@@ -13,7 +13,10 @@
     "./skins/red": "./skins/red.css",
     "./skins/cyan": "./skins/cyan.css",
     "./skins/magenta": "./skins/magenta.css",
-    "./tokens/colors": "./tokens/colors.css"
+    "./tokens/colors": "./tokens/colors.css",
+    "./neo-brut": "./dist/neo-brut.css",
+    "./themes/neo-brut": "./themes/neo-brut.css",
+    "./tokens/neo-brut/*": "./tokens/neo-brut/*"
   },
   "keywords": [
     "design-tokens",
@@ -22,7 +25,11 @@
     "design-system",
     "apps",
     "themes",
-    "skins"
+    "skins",
+    "neo-brut",
+    "dtcg",
+    "swiftui",
+    "ios"
   ],
   "author": "Moshly",
   "license": "MIT",
@@ -32,5 +39,21 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/emptytown/moshly-design-tokens.git"
+  },
+  "scripts": {
+    "build": "node build/build.mjs",
+    "check": "node build/build.mjs --check"
+  },
+  "files": [
+    "dist",
+    "themes",
+    "skins",
+    "tokens",
+    "build"
+  ],
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
   }
 }
